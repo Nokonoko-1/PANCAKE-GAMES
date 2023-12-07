@@ -496,11 +496,10 @@
 
             // 5秒後にボタンを非表示にする
             setTimeout(() => {
-                this.style.display = 'none';
-
                 var bgms = ['bgm-1', 'bgm-2', 'bgm-3'];
                 var randomBgm = bgms[Math.floor(Math.random() * bgms.length)];
                 document.getElementById(randomBgm).play();
+                this.style.display = 'none';
             }, 2000);
         });
 
