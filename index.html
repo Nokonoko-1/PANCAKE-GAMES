@@ -527,7 +527,11 @@
     </div>
 
     <script>
-        var images = ['yunocy.png', 'dog.png', 'purple.png', 'pancake.png', 'skyfrontier.png', 'Taniki.png'];
+        // 各スロットの画像の順序を定義
+        var images1 = ['yunocy.png', 'pancake.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'purple.png', 'Taniki.png', 'skyfrontier.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'pancake.png'];
+        var images2 = ['skyfrontier.png', 'dog.png', 'purple.png', 'yunocy.png', 'Taniki.png', 'dog.png', 'purple.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'purple.png', 'dog.png'];
+        var images3 = ['pancake.png', 'yunocy.png', 'dog.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'dog.png', 'Taniki.png', 'pancake.png', 'yunocy.png'];
+
         var index1 = 0, index2 = 0, index3 = 0; // 各スロット用のインデックス
         var interval1, interval2, interval3;
         var points = 300; // ポイントを管理する変数を追加
@@ -599,32 +603,31 @@
             document.querySelector('.button-2').disabled = false;
             document.querySelector('.button-3').disabled = false;
             interval1 = setInterval(function() {
-                document.querySelector('.slot-1-item').style.backgroundImage = "url('" + images[index1] + "')";
-                index1 = (index1 + 1) % images.length;
+                index1 = (index1 + 1) % images1.length;
+                document.querySelector('.slot-1-item').style.backgroundImage = "url('" + images1[index1] + "')";
+                
             }, speed);
 
             interval2 = setInterval(function() {
-                document.querySelector('.slot-2-item').style.backgroundImage = "url('" + images[index2] + "')";
-                index2 = (index2 + 1) % images.length;
+                index2 = (index2 + 1) % images2.length;
+                document.querySelector('.slot-2-item').style.backgroundImage = "url('" + images2[index2] + "')";
+                
             }, speed);
 
             interval3 = setInterval(function() {
-                document.querySelector('.slot-3-item').style.backgroundImage = "url('" + images[index3] + "')";
-                index3 = (index3 + 1) % images.length;
+                index3 = (index3 + 1) % images3.length;
+                document.querySelector('.slot-3-item').style.backgroundImage = "url('" + images3[index3] + "')";
             }, speed);
         });
         function checkResult() {
             if (!isStarted) return; 
             stopCount++; 
             if (stopCount < 3) return; 
-            if ((index1 == index2 && index2 != index3) || (index1 != index2 && index2 == index3) || (index1 == index3 && index2 != index3)) {
-                setTimeout(function() {
-                var sounds = ['sound-12', 'sound-13', 'sound-14'];
-                var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-                document.getElementById(randomSound).play();
-            }, 1000);
-            score += 10 * scoreMultiplier; // 2つの画像が一致した場合にスコアを加算
-            } else if (index1 == index2 && index2 == index3) {
+            var img1 = images1[index1 % images1.length];
+            var img2 = images2[index2 % images2.length];
+            var img3 = images3[index3 % images3.length];
+            // 3つの画像が一致した場合
+            if (img1 == img2 && img2 == img3) {
                 setTimeout(function() {
                     var sounds = ['sound-8', 'sound-9', 'sound-10', 'sound-11'];
                     var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
@@ -635,18 +638,32 @@
                     }, 1000);
                 }, 1000);
                 score += 100 * scoreMultiplier; 
+                document.getElementById('score').textContent = score; 
                 if (lastResult) {
                     bonus += 50 * scoreMultiplier; 
                     score += bonus; 
                 }
                 lastResult = true; 
-                isStarted = false;
-            } else {
+            } 
+            // 2つの画像が一致した場合
+            else if ((img1 == img2 && img2 != img3) || (img1 == img3 && img3 != img2) || (img2 == img3 && img3 != img1)) {
+                setTimeout(function() {
+                    var sounds = ['sound-12', 'sound-13', 'sound-14'];
+                    var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+                    document.getElementById(randomSound).play();
+                }, 1000);
+                score += 10 * scoreMultiplier; 
+                document.getElementById('score').textContent = score; 
+                lastResult = false; 
+            } 
+            // 一致しなかった場合
+            else {
                 lastResult = false; 
                 bonus = 0; 
             }
-            document.getElementById('score').textContent = score; 
+            //document.getElementById('score').textContent = score; 
             stopCount = 0; 
+            isStarted = false;
         }
         document.querySelector('.button-1').addEventListener('click', function() {
             if (!isStarted || this.disabled) return;
