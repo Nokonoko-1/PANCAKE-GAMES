@@ -142,8 +142,6 @@
             z-index: 8000;
         }*/
          .difficulty-level-frame {
-            /* width: 35%;
-            height: 30%; */
             width: 100px;
             height: 200px;
             margin-left: 70%;
@@ -151,9 +149,7 @@
             position: relative;
         }
 
-        #difficulty-level-hard {
-            /* width: 40%;
-            height: 40%; */
+        /* #difficulty-level-hard {
             width: 60px;
             height: 60px;
             left: 25%;
@@ -165,8 +161,6 @@
             position: relative;
         }
         #difficulty-level-normal {
-            /* width: 40%;
-            height: 40%; */
             width: 60px;
             height: 60px;
             left: 25%;
@@ -178,8 +172,6 @@
             position: relative;
         }
         #difficulty-level-easy {
-            /* width: 40%;
-            height: 40%; */
             width: 60px;
             height: 60px;
             left: 25%;
@@ -189,7 +181,7 @@
             cursor: pointer;
             border-radius: 50%;
             position: relative;
-        }
+        } */
 
         
         @keyframes blinking {
@@ -239,38 +231,38 @@
             background-repeat: no-repeat; */
         }
         .slot-1-item {
-            border: 4px solid rgba(0, 0, 0, 0.733);
+            border: 5px solid rgb(225, 86, 230);
             border-radius: 20px;
             width: 120px;
             height: 120px;
             margin:auto;
             margin-top: -140%;
             position:relative;
-            background-image: url('yunocy.png');
+            background-image: url('7.gif');
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         .slot-2-item {
-            border: 4px solid rgba(0, 0, 0, 0.733);
+            border: 5px solid rgb(225, 86, 230);
             border-radius: 20px;
             width: 120px;
             margin:auto;
             height: 120px;
             margin-top: -140%;
-            background-image: url('dog.png');
+            background-image: url('7.gif');
             background-size: cover;
             background-repeat: no-repeat;
             position:relative;
         }
         .slot-3-item {
-            border: 4px solid rgba(0, 0, 0, 0.733);
+            border: 5px solid rgb(225, 86, 230);
             border-radius: 20px;
             width: 120px;
             margin:auto;
             height: 120px;
             margin-top: -140%;
-            background-image: url('real-taniki.png');
+            background-image: url('7.gif');
             background-size: cover;
             background-repeat: no-repeat;
             position:relative;
@@ -388,6 +380,7 @@
         .button-1:active, .button-2:active, .button-3:active {
             box-shadow: 0 0 10px rgba(255, 255, 255, 1);
         }
+
         .start-frame {
             height: 70%;
             margin-top: -35%;
@@ -414,6 +407,7 @@
             height: 100px;
             position: relative;
             display: inline-block;
+
         }
 
         .start-button {
@@ -433,9 +427,24 @@
             height: 100px;
             font-size: 24px;
             position: relative;
+            border: 4px solid rgba(133, 8, 81, 0.733); 
         }
         .button-1:active, .button-2:active, .button-3:active {
             box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+        }
+
+        @keyframes colorful-blinking {
+            0%   { box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8); } /* 赤 */
+            25%  { box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.8); } /* 緑 */
+            50%  { box-shadow: 0 0 15px 5px rgba(0, 0, 255, 0.8); } /* 青 */
+            75%  { box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8); } /* 黄色 */
+            100% { box-shadow: 0 0 15px 5px rgba(255, 0, 255, 0.8); } /* マゼンタ */
+        }
+
+        .button-1-frame.blinking,
+        .button-2-frame.blinking,
+        .button-3-frame.blinking {
+            animation: colorful-blinking 1s linear infinite;
         }
         /* #difficulty-level-easy:active, #difficulty-level-normal:active, #difficulty-level-hard:active {
             box-shadow: 0 0 50px rgba(255, 255, 255, 1);
@@ -443,6 +452,34 @@
         .start-button:active {
             box-shadow: 0 0 10px rgba(255, 255, 255, 1);
         }
+        /* @keyframes skill-gif-animation {
+            0% { height: 0; }
+            50% { height: 80%; }
+            100% { height: 0; }
+        }
+
+        #skill-gif-container {
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0;
+            width: 100%;
+            height: 0;
+            z-index: 9999;
+            animation: skill-gif-animation 4s;
+            animation-fill-mode: forwards;
+        } */
+        /* @keyframes expandAndShrink {
+        0% { height: 0; }
+        50% { height: 80%; }
+        100% { height: 0; }
+        }
+        #skill-gif-container img {
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        } */
         /* #score-board-frame {
             width: 40%;
             height: 30%;
@@ -471,17 +508,31 @@
             justify-content: space-between;
             position: relative;
             justify-content: center;
-            color: rgb(230, 196, 86);
+            color: rgb(230, 86, 175);
             font-size: 10px;
             font-family: 'Press Start 2P', cursive; /* ゲーム風のフォントを設定 */
             display: grid;
             place-items: center;
+        }
+        @keyframes moveYunocy {
+            0% {
+                right: 0;
+            }
+            100% {
+                right: 100%;
+            }
         }
     }
     </style>
 </head>
 <body>
     <button id="settins-button"></button>
+    <div id="skill-gif-container" style="display: none; position: fixed; top: 0%; left: 0; width: 100%; height: 100%; z-index: 9500;">
+        <img src="skill.gif" style="width: 100%; height: 100%;">
+    </div>
+    <div id="rio-container" style="display: none; position: fixed; top: 70px; left: -50px; width: 100%; height: 100%; z-index: 9999;">
+        <img id="rio-image" src="rio_skill.png">
+    </div>
     <div id="slot-machine-container">
         <div id="gif-container" style="display: none;">
             <img id="gif-image" src="play_method.gif" style="width: 100%; height: 100%;">
@@ -520,49 +571,68 @@
     <div class="start-button-frame">
         <button class="start-button"></button>
     </div>
-    <div class="difficulty-level-frame">
+    <!-- <div class="difficulty-level-frame">
         <button id="difficulty-level-hard"></button>
         <button id="difficulty-level-normal"></button>
         <button id="difficulty-level-easy"></button>     
-    </div>
+    </div> -->
 
     <script>
         // 各スロットの画像の順序を定義
-        var images1 = ['yunocy.png', 'pancake.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'purple.png', 'Taniki.png', 'skyfrontier.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'pancake.png'];
-        var images2 = ['skyfrontier.png', 'dog.png', 'purple.png', 'yunocy.png', 'Taniki.png', 'dog.png', 'purple.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'purple.png', 'dog.png'];
-        var images3 = ['pancake.png', 'yunocy.png', 'dog.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'dog.png', 'Taniki.png', 'pancake.png', 'yunocy.png'];
+        var images1 = ['yunocy.png', 'pancake.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', '7.gif','purple.png', 'real-taniki.png', 'skyfrontier.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'pancake.png'];
+        var images2 = ['skyfrontier.png', 'dog.png', 'purple.png', 'yunocy.png',  '7.gif','real-taniki.png', 'dog.png', 'purple.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'purple.png', 'dog.png'];
+        var images3 = ['pancake.png', 'yunocy.png', 'dog.png',  '7.gif','skyfrontier.png', 'pancake.png', 'purple.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'dog.png', 'real-taniki.png', 'pancake.png', 'yunocy.png'];
 
         var index1 = 0, index2 = 0, index3 = 0; // 各スロット用のインデックス
         var interval1, interval2, interval3;
         var points = 300; // ポイントを管理する変数を追加
-        var speed = 200; // 初期スピードを設定
+        var speed = 500; // 初期スピードを設定
         var score = 0; // スコアを管理する変数を追加
         var bonus = 0; // ボーナスを管理する変数を追加
-        var lastResult = false; // 前回の結果を管理する変数を追加
+        // var lastResult = false; // 前回の結果を管理する変数を追加
         var stopCount = 0; // スロットが止まった回数を管理する変数を追加
         var scoreMultiplier = 1; // スコアの乗数を管理する変数を追加
         var autoPlayCount = 0; // 自動再生のカウントを追加
         var isStarted = false; // スタートボタンが押されたかどうかを追跡する新しい変数
+        var isBlinking = false; 
+        var yunocyCheck_1 = 0;
+        var yunocyCheck_2 = 0;
+        var yunocyCheck_3 = 0;
+        var yunocyMatch = false;
+        var yunocyBounus_1 = false;
+        var yunocyBounus_2 = false;
+        var yunocyBounus_3 = false;
+        var random;
+        var lightRandom;
+        var probability = Math.random();
+        var matchPlace;
+        var buttonPushConf = 0;
+        var randoms = []; //リオのスキルカットインの確率を格納する配列
+        var min_r = 1; //リオのスキルカットインを表示する確率の最小値
+        var max_r = 5; //リオのスキルカットインを表示する確率の最大値
+        var tmp;
+        let allNumbersPresent = true;
+        var notForgetAddBounus = 0; //2回以上連続で光った際に、ボーナスゲームがその数分行われるようにするための変数
+        var notMatch_7 = []; //目押し7が揃わないようにするための配列
 
+        // document.querySelector('#difficulty-level-easy').addEventListener('click', function() {
+        //     speed = 300; // ゆっくりに設定
+        //     scoreMultiplier = 1; // スコアの乗数を1に設定
+        //     document.getElementById('sound-5').play();
+        // });
 
+        // document.querySelector('#difficulty-level-normal').addEventListener('click', function() {
+        //     speed = 180; // 普通に設定
+        //     scoreMultiplier = 2; // スコアの乗数を2に設定
 
-        document.querySelector('#difficulty-level-easy').addEventListener('click', function() {
-            speed = 300; // ゆっくりに設定
-            scoreMultiplier = 1; // スコアの乗数を1に設定
-            document.getElementById('sound-5').play();
-        });
+        //     document.getElementById('sound-6').play();
+        // });
 
-        document.querySelector('#difficulty-level-normal').addEventListener('click', function() {
-            speed = 180; // 普通に設定
-            scoreMultiplier = 2; // スコアの乗数を2に設定
-            document.getElementById('sound-6').play();
-        });
-
-        document.querySelector('#difficulty-level-hard').addEventListener('click', function() {
-            speed = 100; // 速く設定
-            scoreMultiplier = 3; // スコアの乗数を3に設定
-            document.getElementById('sound-7').play();
-        });
+        // document.querySelector('#difficulty-level-hard').addEventListener('click', function() {
+        //     speed = 100; // 速く設定
+        //     scoreMultiplier = 3; // スコアの乗数を3に設定
+        //     document.getElementById('sound-7').play();
+        // });
         
         document.querySelector('#enter-button').addEventListener('click', function() {
             var sounds = ['sound-4'];
@@ -572,26 +642,102 @@
             this.classList.add('zooming');
                 var bgms = ['bgm-1', 'bgm-2', 'bgm-3'];
                 var randomBgm = bgms[Math.floor(Math.random() * bgms.length)];
-
             // 5秒後にボタンを非表示にする
             setTimeout(() => {
-
                 document.getElementById(randomBgm).play();
                 this.style.display = 'none';
-
             }, 2000);
         });
 
-        
         document.querySelector('.start-button').addEventListener('click', function() {
+            // document.getElementById('skill-gif-container').style.display = 'block';
             document.getElementById('slot-machine-container').classList.add('blinking');
+            isBlinking = false;
             isStarted = true;
-            stopCount = 0; 
+            stopCount = 0;
+            matchPlace = Math.random();
             if (points <= 0) {
-                document.getElementById('sound-15').play(); // 「挿入金が不足しています」.mp3を再生
-                return; // ポイントが0以下の場合、何もしない
+                if (yunocyCheck_1 != 1 && yunocyCheck_2 != 1 && yunocyCheck_3 != 1){
+                    return; // ポイントが0以下の場合、何もしない
+                }
             }
-            points -= 10; // ポイントを10減らす
+            var hitProbability; // 当たり確率を記録する変数
+            // 80%の確率
+            if (probability < 0.8) {
+                hitProbability = '1/15';
+                console.log(hitProbability); 
+                // さらに1/15の確率で当たり
+                if (yunocyCheck_1 != 1 && yunocyCheck_2 != 1 && yunocyCheck_3 != 1){
+                    random = Math.random();
+                    console.log(random);
+                    if (random < 0.067) {
+                        notForgetAddBounus += 1;
+                        // document.getElementById('sound-24').play();
+                        lightRandom = Math.random();
+                        console.log("光る");
+                        console.log(lightRandom);
+                        if (lightRandom < 0.3)
+                        {
+                            isBlinking = true;
+                            var frames = document.querySelectorAll('.button-1-frame, .button-2-frame, .button-3-frame');
+                            frames.forEach(function(frame) {
+                                frame.classList.add('blinking');
+                            });
+                            setTimeout(function() {
+                                frames.forEach(function(frame) {
+                                    frame.classList.remove('blinking');
+                                });
+                            }, 2000);
+                        }
+                        else {
+                            isBlinking = false;
+                            // skill.gifを表示
+                            rioSkill();
+                        }
+                    }
+                }
+            }
+            //1/10の確率
+            else {
+                hitProbability = '1/10';
+                console.log(hitProbability); 
+                // さらに1/15の確率で当たり
+                if (yunocyCheck_1 != 1 && yunocyCheck_2 != 1 && yunocyCheck_3 != 1){
+                    random = Math.random();
+                    console.log(random);
+                    // さらに1/15の確率で当たり
+
+                    if (random < 0.1) {
+                        notForgetAddBounus += 1;
+                        // document.getElementById('sound-24').play();
+                        lightRandom = Math.random();
+                        console.log("光る");
+                        console.log(lightRandom);
+                        if (lightRandom < 0.3)
+                        {
+                            isBlinking = true;
+                            var frames = document.querySelectorAll('.button-1-frame, .button-2-frame, .button-3-frame');
+                            frames.forEach(function(frame) {
+                                frame.classList.add('blinking');
+                            });
+                            setTimeout(function() {
+                                frames.forEach(function(frame) {
+                                    frame.classList.remove('blinking');
+                                });
+                            }, 2000);
+                        }
+                        else {
+                            isBlinking = false;
+                            rioSkill();
+                        }
+                    }
+                }
+            }
+
+            if (yunocyCheck_1 != 1 && yunocyCheck_2 != 1 && yunocyCheck_3 != 1)
+            {
+                points -= 10; // ポイントを10減らす
+            }
             document.getElementById('points').textContent = points; // ポイントを表示更新
             clearInterval(interval1);
             clearInterval(interval2);
@@ -618,7 +764,50 @@
                 index3 = (index3 + 1) % images3.length;
                 document.querySelector('.slot-3-item').style.backgroundImage = "url('" + images3[index3] + "')";
             }, speed);
+            this.disabled = true;
         });
+
+        //リオのスキルカットイン表示確率
+        function rioSkill(){
+            while(true){
+                tmp = intRandom(min_r, max_r);
+                if(!randoms.includes(tmp)){
+                    randoms.push(tmp);
+                    if (tmp == 3){
+                        document.getElementById('skill-gif-container').style.display = 'block';
+                        // yunocy.pngを表示し、アニメーションを開始
+                        var rioContainer = document.getElementById('rio-container');
+                        rioContainer.style.display = 'block';
+                        document.getElementById('rio-image').style.animation = 'moveYunocy 4s linear';
+                        document.getElementById('sound-8').play();
+                        // 4秒後にskill.gifとyunocy.pngを非表示にし、アニメーションをリセット
+                        setTimeout(function() {
+                            document.getElementById('skill-gif-container').style.display = 'none';
+                            rioContainer.style.display = 'none';
+                            rioContainer.style.animation = 'none';
+                        }, 3500);
+                    }
+                    console.log(randoms);
+                    break;
+                }
+                console.log(randoms);
+                allNumbersPresent = true;
+                for (let i = 1; i <= 5; i++) {
+                    if (!randoms.includes(i)) {
+                        allNumbersPresent = false;
+                        break;
+                    }
+                }
+                if (allNumbersPresent) {
+                    randoms = []; // 配列を初期化
+                }
+            }
+        }
+
+        function intRandom(min_r, max_r){
+            return Math.floor( Math.random() * (max_r - min_r + 1)) + min_r;
+        }
+
         function checkResult() {
             if (!isStarted) return; 
             stopCount++; 
@@ -626,68 +815,251 @@
             var img1 = images1[index1 % images1.length];
             var img2 = images2[index2 % images2.length];
             var img3 = images3[index3 % images3.length];
-            // 3つの画像が一致した場合
-            if (img1 == img2 && img2 == img3) {
-                setTimeout(function() {
-                    var sounds = ['sound-8', 'sound-9', 'sound-10', 'sound-11'];
-                    var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-                    document.getElementById(randomSound).play();
-                    document.querySelector('.slot-play-frame').classList.add('blinking');
-                    setTimeout(function() {
-                        document.querySelector('.slot-play-frame').classList.remove('blinking');
-                    }, 1000);
-                }, 1000);
-                score += 100 * scoreMultiplier; 
-                document.getElementById('score').textContent = score; 
-                if (lastResult) {
-                    bonus += 50 * scoreMultiplier; 
-                    score += bonus; 
+
+            // ボーナスでyunocyが出ていない時
+            if (yunocyBounus_1 == false && yunocyBounus_2 == false && yunocyBounus_3 == false){
+                if (matchPlace < 0.3){
+                    console.log("1と2が揃うパターン");
+                    if (img1 == img2) {
+                        if (img1 != "7.gif"){
+                            setTimeout(function() {
+                            var sounds = ['sound-9'];
+                            var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+                            document.getElementById(randomSound).play();
+                            document.querySelector('.slot-play-frame').classList.add('blinking');
+                            setTimeout(function() {
+                                document.querySelector('.slot-play-frame').classList.remove('blinking');
+                            }, 1000);
+                        }, 1000);
+                        score += 10 * scoreMultiplier; 
+                        document.getElementById('score').textContent = score; 
+                        } 
+                    }
                 }
-                lastResult = true; 
-            } 
-            // 2つの画像が一致した場合
-            else if ((img1 == img2 && img2 != img3) || (img1 == img3 && img3 != img2) || (img2 == img3 && img3 != img1)) {
-                setTimeout(function() {
-                    var sounds = ['sound-12', 'sound-13', 'sound-14'];
-                    var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-                    document.getElementById(randomSound).play();
-                }, 1000);
-                score += 10 * scoreMultiplier; 
-                document.getElementById('score').textContent = score; 
-                lastResult = false; 
-            } 
-            // 一致しなかった場合
-            else {
-                lastResult = false; 
-                bonus = 0; 
+
+                else if (matchPlace >= 0.3 && matchPlace < 0.7){
+                    console.log("2と3が揃うパターン");
+                    if (img2 == img3) {
+                        if (img2 != "7.gif"){
+                            setTimeout(function() {
+                            var sounds = ['sound-9'];
+                            var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+                            document.getElementById(randomSound).play();
+                            document.querySelector('.slot-play-frame').classList.add('blinking');
+                            setTimeout(function() {
+                                document.querySelector('.slot-play-frame').classList.remove('blinking');
+                            }, 1000);
+                        }, 1000);
+                        score += 10 * scoreMultiplier; 
+                        document.getElementById('score').textContent = score; 
+                        }
+                    }
+                }
+                else if(matchPlace >= 0.7){
+                    console.log("1と3が揃うパターン");
+                    if (img1 == img3) {
+                        if(img1 != "7.gif")
+                        setTimeout(function() {
+                            var sounds = ['sound-9'];
+                            var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+                            document.getElementById(randomSound).play();
+                            document.querySelector('.slot-play-frame').classList.add('blinking');
+                            setTimeout(function() {
+                                document.querySelector('.slot-play-frame').classList.remove('blinking');
+                            }, 1000);
+                        }, 1000);
+                        score += 10 * scoreMultiplier; 
+                        document.getElementById('score').textContent = score; 
+                    } 
+
+                }
+
+                // // 2つの画像が一致した場合
+                // else if ((img1 == img2 && img2 != img3) || (img1 == img3 && img3 != img2) || (img2 == img3 && img3 != img1)) {
+                //     setTimeout(function() {
+                //         var sounds = ['sound-12', 'sound-13', 'sound-14'];
+                //         var randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+                //         document.getElementById(randomSound).play();
+                //     }, 1000);
+                //     score += 10 * scoreMultiplier; 
+                //     document.getElementById('score').textContent = score; 
+                //     // lastResult = false; 
+                // } 
+                // 一致しなかった場合
+                else {
+                    // lastResult = false; 
+                    bonus = 0; 
+                }
+                //document.getElementById('score').textContent = score; 
+                stopCount = 0; 
+                isStarted = false;
             }
-            //document.getElementById('score').textContent = score; 
-            stopCount = 0; 
-            isStarted = false;
+            
+            else if (yunocyBounus_1 == true && yunocyBounus_2 == true && yunocyBounus_3 == true){
+                    score +=  50;                     
+                    document.getElementById('score').textContent = score;
+                    document.getElementById('sound-25').play();
+            }
         }
+
+        function alignAllSlotsToYunocy() {
+            // images1, images2, images3からyunocy.pngのパスを見つける
+            var yunocyImage1 = images1.find(image => image === '7.gif');
+            var yunocyImage2 = images2.find(image => image === '7.gif');
+            var yunocyImage3 = images3.find(image => image === '7.gif');
+
+            // 各スロットアイテムにyunocy.pngを設定する
+            document.querySelector('.slot-1-item').style.backgroundImage = "url('" + yunocyImage1 + "')";
+            document.querySelector('.slot-2-item').style.backgroundImage = "url('" + yunocyImage2 + "')";
+            document.querySelector('.slot-3-item').style.backgroundImage = "url('" + yunocyImage3 + "')";
+
+        }
+        
         document.querySelector('.button-1').addEventListener('click', function() {
             if (!isStarted || this.disabled) return;
             this.disabled = true; // ボタンを無効化
             clearInterval(interval1);
-            document.getElementById('sound-1').play();
+            yunocyBounus_1 = false;
+            buttonPushConf += 1;
+            
+            if (yunocyCheck_1 >= 1) {
+                alignAllSlotsToYunocy();
+                // yunocyCheck_1 -= 1;
+                yunocyBounus_1 = true;
+            }
+            if (probability < 0.8){
+                if (random < 0.067) {
+                    if (yunocyCheck_1 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_1 = 1;
+                        yunocyBounus_1 = true;
+                    }
+                    else{
+                    yunocyCheck_1 = 0;
+                    // if(yunocyCheck_1 < 0){
+                    //     yunocyCheck_1 = 0;
+                    // }
+                   }
+                }
+                // else{
+                //     yunocyCheck_1 = 0;
+                //     // if(yunocyCheck_1 < 0){
+                //     //     yunocyCheck_1 = 0;
+                //     // }
+                // }
+            }
+            else {
+                if (random < 0.1) {
+                    if (yunocyCheck_1 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_1 = 1;
+                        yunocyBounus_1 = true;
+                    }
+                    else{
+                    yunocyCheck_1 = 0;
+                    // if(yunocyCheck_1 < 0){
+                    //     yunocyCheck_1 = 0;
+                    // }
+                   }
+                }
+                // else{
+                //     yunocyCheck_1 = 0;
+                //     // if(yunocyCheck_1 < 0){
+                //     //     yunocyCheck_1 = 0;
+                //     // }
+                // }
+            }
             checkResult(); // ボタン1をクリックしたときに結果をチェック
+            document.getElementById('sound-1').play();
+            checkButtonCount();
         }); 
 
         document.querySelector('.button-2').addEventListener('click', function() {
             if (!isStarted || this.disabled) return;
             this.disabled = true; // ボタンを無効化
             clearInterval(interval2);
-            document.getElementById('sound-2').play();
+            yunocyBounus_2 = false;
+            buttonPushConf += 1;
+
+            if (yunocyCheck_2 >= 1) {   
+                alignAllSlotsToYunocy();
+                // yunocyCheck_2 -= 1;
+                yunocyBounus_2 = true;
+            }
+            if (probability < 0.8){
+                if (random < 0.067) {
+                    if (yunocyCheck_2 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_2 = 1;
+                        yunocyBounus_2 = true;
+                    }
+                    else{
+                    yunocyCheck_2 = 0;
+                   }
+                }
+            }
+            else {
+                if (random < 0.1) {
+                    if (yunocyCheck_2 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_2 = 1;
+                        yunocyBounus_2 = true;
+                    }
+                    else{
+                    yunocyCheck_2 = 0;
+                   }
+                }
+            }
             checkResult(); // ボタン2をクリックしたときに結果をチェック
+            document.getElementById('sound-2').play();
+            checkButtonCount();
         });
 
         document.querySelector('.button-3').addEventListener('click', function() {
             if (!isStarted || this.disabled) return;
             this.disabled = true; // ボタンを無効化
             clearInterval(interval3);
-            document.getElementById('sound-1').play();
+            yunocyBounus_3 = false;
+            buttonPushConf += 1;
+
+            if (yunocyCheck_3 >= 1) {
+                alignAllSlotsToYunocy();
+                yunocyBounus_3 = true;
+            }
+            if (probability < 0.8){
+                if (random < 0.067) {
+                    if (yunocyCheck_3 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_3 = 1;
+                        yunocyBounus_3 = true;
+                    }
+                    else{
+                    yunocyCheck_3 = 0;
+                   }
+                }
+            }
+            else {
+                if (random < 0.1) {
+                    if (yunocyCheck_3 < 1){
+                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        yunocyCheck_3 = 1;
+                        yunocyBounus_3 = true;
+                    }
+                    else{
+                    yunocyCheck_3 = 0;
+                   }
+                }
+            }
             checkResult(); // ボタン3をクリックしたときに結果をチェック
+            document.getElementById('sound-3').play();
+            checkButtonCount();
+            // if(document.querySelector('.start-button').disabled == true)
+            // {
+            //     console.log('aaa');
+            // }
+            // document.querySelector('.start-button').disabled = false;
         });
+
         document.querySelector('#settins-button').addEventListener('click', function() {
             document.getElementById('sound-21').play();
             document.getElementById('gif-container').style.display = 'block';
@@ -696,6 +1068,17 @@
             document.getElementById('sound-22').play();
             document.getElementById('gif-container').style.display = 'none';
         });
+        if (document.querySelector('.button-1').disabled == true && document.querySelector('.button-2').disabled == true && document.querySelector('.button-3').disabled == true){
+            document.getElementsByClassName('.start-button').disabled = false;
+        }
+
+        //３つのスピンボタンが全て押されるまでスタートボタンの機能を止める
+        function checkButtonCount(){
+            if (buttonPushConf == 3){
+                document.querySelector('.start-button').disabled = false;
+                buttonPushConf = 0;
+            }
+        }
 
     </script>
     <audio id="sound-0" src="start.mp3"></audio>
@@ -706,16 +1089,14 @@
     <audio id="sound-5" src="easy-mode.wav"></audio>
     <audio id="sound-6" src="normal-mode.wav"></audio>
     <audio id="sound-7" src="hard-mode.wav"></audio>
-    <audio id="sound-8" src="「すごいすごい」.mp3"></audio>
+    <audio id="sound-8" src="rio_rap.wav"></audio>
     <audio id="sound-9" src="「マーベラス」.mp3"></audio>
-    <audio id="sound-10" src="「エクセレント」.mp3"></audio>
-    <audio id="sound-11" src="「大当たり～」.mp3"></audio>
-    <audio id="sound-12" src="「惜っしーい」.mp3"></audio>
-    <audio id="sound-13" src="「あとちょっとだったね」.mp3"></audio>
-    <audio id="sound-14" src="「もう一息です」.mp3"></audio>
     <audio id="sound-15" src="「挿入金が不足しています」.mp3"></audio>
     <audio id="sound-21" src="決定ボタンを押す29.mp3"></audio>
     <audio id="sound-22" src="決定ボタンを押す42 (1).mp3"></audio>
+    <audio id="sound-23" src="「負けられないわ！」.mp3"></audio>
+    <audio id="sound-24" src="「当ったり～」.mp3"></audio>
+    <audio id="sound-25" src="bonus_sound.wav"></audio>
     <audio id="bgm-1" src="bgm1.wav" loop></audio>
     <audio id="bgm-2" src="bgm2.wav" loop></audio>
     <audio id="bgm-3" src="bgm3.wav" loop></audio>
