@@ -12,7 +12,7 @@
             width: 100%;
             height: 100%;
             margin: 0;
-            background-image: url('background-pancake.png');
+            background-image: url('background-coolgirl.png');
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -316,16 +316,6 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 1);
         }
 
-        .start-frame {
-            height: 70%;
-            margin-top: -35%;
-            background-image: url('start-frame.png');
-            background-size: 100% 50%;
-            background-repeat: no-repeat;
-            text-align: center;
-            position: relative;
-        }
-
         .start-button-frame {
             border: none;
             padding: 10px;
@@ -429,7 +419,7 @@
         <img src="skill.gif" style="width: 100%; height: 100%;">
     </div>
     <div id="rio-container" style="display: none; position: fixed; top: 70px; left: -50px; width: 100%; height: 100%; z-index: 9999;">
-        <img id="rio-image" src="rio_skill.png">
+        <img id="rio-image" src="my_road.png">
     </div>
     <div id="slot-machine-container">
         <div id="gif-container" style="display: none;">
@@ -472,10 +462,10 @@
 
     <script>
         // 各スロットの画像の順序を定義
-        var images1 = ['yunocy.png', 'pancake.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', '7.gif','purple.png', 'real-taniki.png', 'skyfrontier.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'pancake.png'];
-        var images2 = ['skyfrontier.png', 'dog.png', 'purple.png', 'yunocy.png',  '7.gif','real-taniki.png', 'dog.png', 'purple.png', 'yunocy.png', 'pancake.png', 'skyfrontier.png', 'dog.png', 'purple.png', 'dog.png'];
-        var images3 = ['pancake.png', 'yunocy.png', 'dog.png',  '7.gif','skyfrontier.png', 'pancake.png', 'purple.png', 'skyfrontier.png', 'pancake.png', 'purple.png', 'dog.png', 'real-taniki.png', 'pancake.png', 'yunocy.png'];
-        var shiftImage = ['skyfrontier.png', 'purple.png', 'dog.png', 'real-taniki.png', 'pancake.png', 'yunocy.png'];
+        var images1 = ['3.png', 'coolgirl.png', '3.png', 'coolgirl.png', 'ene1', '7.gif','4.png', '2png', 'ene1', '3.png', 'coolgirl.png', 'ene1', 'ene2', 'coolgirl.png'];
+        var images2 = ['ene1', 'ene2', '4.png', '3.png',  '7.gif','2png', 'ene2', '4.png', '3.png', 'coolgirl.png', 'ene1', 'ene2', '4.png', 'ene2'];
+        var images3 = ['coolgirl.png', '3.png', 'ene2',  '7.gif','ene1', 'coolgirl.png', '4.png', 'ene1', 'coolgirl.png', '4.png', 'ene2', '2png', 'coolgirl.png', '3.png'];
+        var shiftImage = ['ene1', '4.png', 'ene2', '2png', 'coolgirl.png', '3.png'];
 
         var index1 = 0, index2 = 0, index3 = 0; // 各スロット用のインデックス
         var interval1, interval2, interval3;
@@ -666,12 +656,12 @@
                     randoms.push(tmp);
                     if (tmp == 3){
                         document.getElementById('skill-gif-container').style.display = 'block';
-                        // yunocy.pngを表示し、アニメーションを開始
+                        // 3.pngを表示し、アニメーションを開始
                         var rioContainer = document.getElementById('rio-container');
                         rioContainer.style.display = 'block';
                         document.getElementById('rio-image').style.animation = 'moveYunocy 4s linear';
                         document.getElementById('sound-8').play();
-                        // 4秒後にskill.gifとyunocy.pngを非表示にし、アニメーションをリセット
+                        // 4秒後にskill.gifと3.pngを非表示にし、アニメーションをリセット
                         setTimeout(function() {
                             document.getElementById('skill-gif-container').style.display = 'none';
                             rioContainer.style.display = 'none';
@@ -782,12 +772,12 @@
         }
 
         function alignAllSlotsToYunocy() {
-            // images1, images2, images3からyunocy.pngのパスを見つける
+            // images1, images2, images3から3.pngのパスを見つける
             var yunocyImage1 = images1.find(image => image === '7.gif');
             var yunocyImage2 = images2.find(image => image === '7.gif');
             var yunocyImage3 = images3.find(image => image === '7.gif');
 
-            // 各スロットアイテムにyunocy.pngを設定する
+            // 各スロットアイテムに3.pngを設定する
             document.querySelector('.slot-1-item').style.backgroundImage = "url('" + yunocyImage1 + "')";
             document.querySelector('.slot-2-item').style.backgroundImage = "url('" + yunocyImage2 + "')";
             document.querySelector('.slot-3-item').style.backgroundImage = "url('" + yunocyImage3 + "')";
@@ -808,7 +798,7 @@
             if (probability < 0.8){
                 if (random < 0.067) {
                     if (yunocyCheck_1 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_1 = 1;
                         yunocyBounus_1 = true;
                     }
@@ -820,7 +810,7 @@
             else {
                 if (random < 0.1) {
                     if (yunocyCheck_1 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_1 = 1;
                         yunocyBounus_1 = true;
                     }
@@ -861,7 +851,7 @@
             if (probability < 0.8){
                 if (random < 0.067) {
                     if (yunocyCheck_2 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_2 = 1;
                         yunocyBounus_2 = true;
                     }
@@ -873,7 +863,7 @@
             else {
                 if (random < 0.1) {
                     if (yunocyCheck_2 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_2 = 1;
                         yunocyBounus_2 = true;
                     }
@@ -914,7 +904,7 @@
             if (probability < 0.8){
                 if (random < 0.067) {
                     if (yunocyCheck_3 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_3 = 1;
                         yunocyBounus_3 = true;
                     }
@@ -926,7 +916,7 @@
             else {
                 if (random < 0.1) {
                     if (yunocyCheck_3 < 1){
-                        alignAllSlotsToYunocy(); // yunocy.pngに揃える
+                        alignAllSlotsToYunocy(); // 3.pngに揃える
                         yunocyCheck_3 = 1;
                         yunocyBounus_3 = true;
                     }
